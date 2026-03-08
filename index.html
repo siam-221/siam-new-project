@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>S1AM | Cyber Surveillance & Network Expert</title>
     <style>
-        /* Basic Reset */
+        /* --- CSS Section --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
@@ -15,7 +15,6 @@
             overflow-x: hidden; 
         }
 
-        /* Matrix Canvas Background */
         canvas {
             position: fixed;
             top: 0;
@@ -23,7 +22,6 @@
             z-index: -1;
         }
 
-        /* Main Container */
         .main-content {
             min-height: 100vh;
             display: flex;
@@ -31,63 +29,61 @@
             justify-content: center;
             align-items: center;
             padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(3px);
         }
 
-        /* Header Styling */
         .glitch {
-            font-size: clamp(3rem, 10vw, 5rem);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
             font-weight: bold;
             text-transform: uppercase;
-            position: relative;
             text-shadow: 0 0 15px #00ff41;
             margin-bottom: 10px;
-            letter-spacing: 10px;
+            letter-spacing: 8px;
         }
 
-        /* Profile Card */
-        .profile-info {
+        .profile-card {
             border: 1px solid #00ff41;
-            padding: 30px;
+            padding: 25px;
             background: rgba(0, 255, 65, 0.05);
             max-width: 800px;
             width: 100%;
             box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
             border-radius: 5px;
+            text-align: center;
         }
 
-        .tagline { color: #fff; font-size: 1.2rem; margin-bottom: 5px; }
-        .company { color: #00ff41; font-weight: bold; margin-bottom: 20px; }
+        .tagline { color: #fff; font-size: 1.1rem; margin-bottom: 5px; }
+        .company { color: #00ff41; font-weight: bold; margin-bottom: 15px; }
 
-        /* Dashboard Section */
+        /* Typing Effect Style */
+        #typing-text {
+            font-weight: bold;
+            color: #fff;
+            border-right: 2px solid #00ff41;
+            padding-right: 5px;
+        }
+
+        /* Dashboard Stats */
         .dashboard {
-            margin-top: 30px;
+            margin-top: 25px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             text-align: left;
         }
 
         .stat-card {
             border: 1px dashed #00ff41;
-            padding: 15px;
+            padding: 12px;
             background: rgba(0, 255, 65, 0.02);
-            transition: 0.3s;
         }
 
-        .stat-card:hover {
-            background: rgba(0, 255, 65, 0.1);
-            transform: scale(1.02);
-        }
-
-        /* Progress Bar Animation */
         .progress-bar {
             width: 100%;
-            height: 8px;
+            height: 6px;
             background: #111;
-            margin-top: 10px;
-            border-radius: 5px;
+            margin-top: 8px;
             overflow: hidden;
         }
 
@@ -95,42 +91,41 @@
             height: 100%;
             background: #00ff41;
             box-shadow: 0 0 10px #00ff41;
-            animation: pulse 2s ease-in-out infinite alternate;
+            animation: pulse 2s infinite alternate;
         }
 
-        @keyframes pulse {
-            from { width: 60%; opacity: 0.7; }
-            to { width: 95%; opacity: 1; }
-        }
+        @keyframes pulse { from { width: 50%; } to { width: 95%; } }
 
-        /* Buttons/Links */
-        .btn-container {
+        /* Contact Form */
+        .contact-form {
             margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: left;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 25px;
+        input, textarea {
+            background: rgba(0, 255, 65, 0.1);
             border: 1px solid #00ff41;
-            color: #00ff41;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: 0.3s;
-            margin: 5px;
+            padding: 10px;
+            color: #fff;
+            font-family: inherit;
         }
 
-        .btn:hover {
+        .submit-btn {
             background: #00ff41;
             color: #000;
-            box-shadow: 0 0 20px #00ff41;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
         }
 
-        footer {
-            margin-top: 40px;
-            color: #444;
-            font-size: 0.8rem;
-        }
+        .submit-btn:hover { box-shadow: 0 0 15px #00ff41; transform: scale(1.02); }
+
+        footer { margin-top: 30px; color: #444; font-size: 0.7rem; }
     </style>
 </head>
 <body>
@@ -140,54 +135,47 @@
 <div class="main-content">
     <div class="glitch">S1AM</div>
     
-    <div class="profile-info">
+    <div class="profile-card">
         <p class="tagline">Assistant Supervisor – CCTV Surveillance</p>
         <p class="company">Interstoff Apparels Ltd.</p>
         
-        <p style="color: #888; font-size: 0.9rem; line-height: 1.6;">
-            Expert in CCTV Infrastructure, System Administration, and Python Automation. 
-            Managing 300+ cameras with customized network monitoring tools.
-        </p>
+        <p>Expert in: <span id="typing-text"></span></p>
 
         <div class="dashboard">
             <div class="stat-card">
-                <p>Active Nodes: 300+ Cam</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 98%;"></div></div>
+                <p>Cameras: 300+</p>
+                <div class="progress-bar"><div class="progress-fill"></div></div>
             </div>
             <div class="stat-card">
-                <p>System Uptime: 99.9%</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 99%;"></div></div>
+                <p>Network: WAN/Hub</p>
+                <div class="progress-bar"><div class="progress-fill" style="animation-delay: 0.5s;"></div></div>
             </div>
             <div class="stat-card">
-                <p>Network Load: Optimizing</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
-            </div>
-            <div class="stat-card">
-                <p>Firewall: Maximum</p>
-                <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                <p>System Uptime: 99%</p>
+                <div class="progress-bar"><div class="progress-fill" style="animation-delay: 1s;"></div></div>
             </div>
         </div>
 
-        <div class="btn-container">
-            <a href="#" class="btn">View Projects</a>
-            <a href="#" class="btn">Contact Me</a>
+        <div class="contact-form">
+            <input type="text" placeholder="Name">
+            <textarea rows="2" placeholder="Message"></textarea>
+            <button class="submit-btn" onclick="sendWhatsApp()">SEND VIA WHATSAPP</button>
         </div>
     </div>
 
-    <footer>
-        &copy; 2026 S1AM | Secured Connection Established.
-    </footer>
+    <footer>&copy; 2026 Secured by S1AM</footer>
 </div>
 
 <script>
-    // Matrix Rain Effect Code
+    // --- JavaScript Section ---
+
+    // 1. Matrix Background
     const canvas = document.getElementById('matrixCanvas');
     const ctx = canvas.getContext('2d');
-
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const characters = "010101S1AM010101";
+    const alphabet = "010101S1AM";
     const fontSize = 16;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(1);
@@ -195,27 +183,42 @@
     function drawMatrix() {
         ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-
         ctx.fillStyle = "#00ff41";
         ctx.font = fontSize + "px arial";
-
         drops.forEach((y, i) => {
-            const text = characters.charAt(Math.floor(Math.random() * characters.length));
+            const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
             ctx.fillText(text, i * fontSize, y * fontSize);
-
-            if (y * fontSize > canvas.height && Math.random() > 0.975) {
-                drops[i] = 0;
-            }
+            if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
             drops[i]++;
         });
     }
-
     setInterval(drawMatrix, 35);
 
-    window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    });
+    // 2. Typing Animation
+    const typingSpan = document.getElementById("typing-text");
+    const phrases = ["Python Automation", "CCTV Infrastructure", "Malware Analysis", "Network Security"];
+    let pIdx = 0, cIdx = 0, isErasing = false;
+
+    function typeEffect() {
+        const current = phrases[pIdx];
+        if (isErasing) {
+            typingSpan.textContent = current.substring(0, cIdx--);
+            if (cIdx < 0) { isErasing = false; pIdx = (pIdx + 1) % phrases.length; }
+        } else {
+            typingSpan.textContent = current.substring(0, cIdx++);
+            if (cIdx > current.length) isErasing = true;
+        }
+        setTimeout(typeEffect, isErasing ? 50 : 150);
+    }
+    typeEffect();
+
+    // 3. WhatsApp Redirect
+    function sendWhatsApp() {
+        const msg = "Hello S1AM, I visited your portfolio!";
+        window.open(`https://wa.me/01627026271text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    window.onresize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
 </script>
 
 </body>
