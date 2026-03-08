@@ -3,142 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>রিয়াদুল ইসলাম সিয়াম | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>S1AM | Graphical Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            background: #0a192f;
+            color: #64ffda;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: hidden;
         }
-        body {
-            background-color: #0f172a;
-            color: #f8fafc;
-            line-height: 1.6;
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 40px 20px;
-        }
-        /* Header Section */
-        header {
-            text-align: center;
-            padding-bottom: 50px;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            color: #38bdf8;
-            margin-bottom: 10px;
-        }
-        header p {
-            font-size: 1.1rem;
-            color: #94a3b8;
-        }
-        /* Card Style */
-        .section {
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 15px;
-            margin-bottom: 25px;
-            border: 1px solid #334155;
-            transition: transform 0.3s;
-        }
-        .section:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-        }
-        h2 {
-            font-size: 1.5rem;
-            color: #38bdf8;
-            margin-bottom: 15px;
+        .hero {
+            height: 100vh;
             display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            text-align: center;
+            background: rgba(10, 25, 47, 0.7);
         }
-        /* Skills Chips */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 0 0 20px #64ffda;
         }
-        .skill-badge {
-            background: #0ea5e9;
-            color: white;
-            padding: 6px 15px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
+        .hero p {
+            font-size: 1.2rem;
+            color: #8892b0;
         }
-        /* Social Links */
-        .links a {
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px auto;
+            max-width: 800px;
+        }
+        .skill-box {
             display: inline-block;
-            color: #f8fafc;
-            text-decoration: none;
-            background: #334155;
-            padding: 10px 20px;
-            border-radius: 8px;
-            margin-right: 10px;
-            margin-top: 10px;
+            border: 1px solid #64ffda;
+            padding: 5px 15px;
+            margin: 5px;
             transition: 0.3s;
         }
-        .links a:hover {
-            background: #38bdf8;
-        }
-        footer {
-            text-align: center;
-            color: #64748b;
-            padding-top: 30px;
-            font-size: 0.9rem;
+        .skill-box:hover {
+            background: #64ffda;
+            color: #0a192f;
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>রিয়াদুল ইসলাম সিয়াম</h1>
-        <p>Assistant Supervisor – CCTV Surveillance</p>
-        <p>Interstoff Apparels Ltd.</p>
-    </header>
+<div id="particles-js"></div>
 
-    <div class="section">
-        <h2>👨‍💻 আমার সম্পর্কে</h2>
-        <p>আমি সিসিটিভি নেটওয়ার্ক ইনফ্রাস্ট্রাকচার ম্যানেজমেন্ট এবং সিস্টেম অ্যাডমিনিস্ট্রেশনে বিশেষজ্ঞ। আমি বর্তমানে ৩৫০টিরও বেশি ক্যামেরার বিশাল নেটওয়ার্ক এবং পাইথন অটোমেশন নিয়ে কাজ করছি।</p>
-    </div>
-
-    <div class="section">
-        <h2>🛠 দক্ষতা (Skills)</h2>
-        <div class="skills-container">
-            <span class="skill-badge">CCTV Infrastructure</span>
-            <span class="skill-badge">Network Security (WAN/Hub-Spoke)</span>
-            <span class="skill-badge">Python & Django</span>
-            <span class="skill-badge">Cybersecurity & Malware Analysis</span>
-            <span class="skill-badge">System Administration</span>
-        </div>
-    </div>
-
-    <div class="section">
-        <h2>🚀 প্রজেক্ট সমূহ</h2>
-        <ul>
-            <li><strong>CCTV Monitoring System:</strong> ৩৫০টি ক্যামেরার স্ট্যাটাস অটোমেটিক লগ করার জন্য পাইথন টুল।</li>
-            <li><strong>HR Management Web App:</strong> জ্যাঙ্গো (Django) ব্যবহার করে তৈরি করা এডমিন প্যানেল।</li>
-        </ul>
-    </div>
-
-    <div class="section">
-        <h2>🔗 সোশ্যাল মিডিয়া ও যোগাযোগ</h2>
-        <div class="links">
-            <a href="#">Facebook</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2026 S1AM. All Rights Reserved.</p>
-    </footer>
+<div class="hero">
+    <h1>S1AM</h1>
+    <p>Assistant Supervisor – CCTV Surveillance</p>
+    <p>Network & Automation Enthusiast</p>
 </div>
+
+<div class="container">
+    <div class="glass-card">
+        <h2>System Info</h2>
+        <p>Location: Gazipur, Bangladesh</p>
+        <p>Expertise: CCTV Infrastructure, WAN Topologies, Python Automation</p>
+        <div class="skills-container">
+            <div class="skill-box">Python</div>
+            <div class="skill-box">Cybersecurity</div>
+            <div class="skill-box">Networking</div>
+            <div class="skill-box">Malware Analysis</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80 },
+            "color": { "value": "#64ffda" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3 },
+            "line_linked": { "enable": true, "distance": 150, "color": "#64ffda", "opacity": 0.4, "width": 1 },
+            "move": { "enable": true, "speed": 4 }
+        },
+        "interactivity": {
+            "events": { "onhover": { "enable": true, "mode": "repulse" } }
+        }
+    });
+</script>
 
 </body>
 </html>
