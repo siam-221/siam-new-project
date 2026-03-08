@@ -3,103 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S1AM | Graphical Portfolio</title>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <title>S1AM | Cyber Surveillance & Network Expert</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #0a192f;
-            color: #64ffda;
-            font-family: 'Courier New', Courier, monospace;
-            overflow-x: hidden;
+        /* Basic Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: #050505; 
+            color: #00ff41; 
+            font-family: 'Courier New', Courier, monospace; 
+            overflow-x: hidden; 
         }
-        #particles-js {
+
+        /* Matrix Canvas Background */
+        canvas {
             position: fixed;
-            width: 100%;
-            height: 100%;
+            top: 0;
+            left: 0;
             z-index: -1;
         }
-        .hero {
-            height: 100vh;
+
+        /* Main Container */
+        .main-content {
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            background: rgba(10, 25, 47, 0.7);
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(3px);
         }
-        .hero h1 {
-            font-size: 3.5rem;
-            margin: 0;
+
+        /* Header Styling */
+        .glitch {
+            font-size: clamp(3rem, 10vw, 5rem);
+            font-weight: bold;
             text-transform: uppercase;
-            letter-spacing: 5px;
-            text-shadow: 0 0 20px #64ffda;
+            position: relative;
+            text-shadow: 0 0 15px #00ff41;
+            margin-bottom: 10px;
+            letter-spacing: 10px;
         }
-        .hero p {
-            font-size: 1.2rem;
-            color: #8892b0;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.2);
-            padding: 40px;
-            border-radius: 20px;
-            margin: 50px auto;
+
+        /* Profile Card */
+        .profile-info {
+            border: 1px solid #00ff41;
+            padding: 30px;
+            background: rgba(0, 255, 65, 0.05);
             max-width: 800px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+            border-radius: 5px;
         }
-        .skill-box {
-            display: inline-block;
-            border: 1px solid #64ffda;
-            padding: 5px 15px;
-            margin: 5px;
+
+        .tagline { color: #fff; font-size: 1.2rem; margin-bottom: 5px; }
+        .company { color: #00ff41; font-weight: bold; margin-bottom: 20px; }
+
+        /* Dashboard Section */
+        .dashboard {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            text-align: left;
+        }
+
+        .stat-card {
+            border: 1px dashed #00ff41;
+            padding: 15px;
+            background: rgba(0, 255, 65, 0.02);
             transition: 0.3s;
         }
-        .skill-box:hover {
-            background: #64ffda;
-            color: #0a192f;
+
+        .stat-card:hover {
+            background: rgba(0, 255, 65, 0.1);
+            transform: scale(1.02);
+        }
+
+        /* Progress Bar Animation */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #111;
+            margin-top: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #00ff41;
+            box-shadow: 0 0 10px #00ff41;
+            animation: pulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse {
+            from { width: 60%; opacity: 0.7; }
+            to { width: 95%; opacity: 1; }
+        }
+
+        /* Buttons/Links */
+        .btn-container {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: #00ff41;
+            color: #000;
+            box-shadow: 0 0 20px #00ff41;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #444;
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 
-<div id="particles-js"></div>
+<canvas id="matrixCanvas"></canvas>
 
-<div class="hero">
-    <h1>S1AM</h1>
-    <p>Assistant Supervisor – CCTV Surveillance</p>
-    <p>Network & Automation Enthusiast</p>
-</div>
+<div class="main-content">
+    <div class="glitch">S1AM</div>
+    
+    <div class="profile-info">
+        <p class="tagline">Assistant Supervisor – CCTV Surveillance</p>
+        <p class="company">Interstoff Apparels Ltd.</p>
+        
+        <p style="color: #888; font-size: 0.9rem; line-height: 1.6;">
+            Expert in CCTV Infrastructure, System Administration, and Python Automation. 
+            Managing 300+ cameras with customized network monitoring tools.
+        </p>
 
-<div class="container">
-    <div class="glass-card">
-        <h2>System Info</h2>
-        <p>Location: Gazipur, Bangladesh</p>
-        <p>Expertise: CCTV Infrastructure, WAN Topologies, Python Automation</p>
-        <div class="skills-container">
-            <div class="skill-box">Python</div>
-            <div class="skill-box">Cybersecurity</div>
-            <div class="skill-box">Networking</div>
-            <div class="skill-box">Malware Analysis</div>
+        <div class="dashboard">
+            <div class="stat-card">
+                <p>Active Nodes: 300+ Cam</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 98%;"></div></div>
+            </div>
+            <div class="stat-card">
+                <p>System Uptime: 99.9%</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 99%;"></div></div>
+            </div>
+            <div class="stat-card">
+                <p>Network Load: Optimizing</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 45%;"></div></div>
+            </div>
+            <div class="stat-card">
+                <p>Firewall: Maximum</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+            </div>
+        </div>
+
+        <div class="btn-container">
+            <a href="#" class="btn">View Projects</a>
+            <a href="#" class="btn">Contact Me</a>
         </div>
     </div>
+
+    <footer>
+        &copy; 2026 S1AM | Secured Connection Established.
+    </footer>
 </div>
 
 <script>
-    particlesJS("particles-js", {
-        "particles": {
-            "number": { "value": 80 },
-            "color": { "value": "#64ffda" },
-            "shape": { "type": "circle" },
-            "opacity": { "value": 0.5 },
-            "size": { "value": 3 },
-            "line_linked": { "enable": true, "distance": 150, "color": "#64ffda", "opacity": 0.4, "width": 1 },
-            "move": { "enable": true, "speed": 4 }
-        },
-        "interactivity": {
-            "events": { "onhover": { "enable": true, "mode": "repulse" } }
-        }
+    // Matrix Rain Effect Code
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const characters = "010101S1AM010101";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#00ff41";
+        ctx.font = fontSize + "px arial";
+
+        drops.forEach((y, i) => {
+            const text = characters.charAt(Math.floor(Math.random() * characters.length));
+            ctx.fillText(text, i * fontSize, y * fontSize);
+
+            if (y * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        });
+    }
+
+    setInterval(drawMatrix, 35);
+
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     });
 </script>
 
